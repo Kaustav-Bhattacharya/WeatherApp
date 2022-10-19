@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import WeatherCard from "./Components/WeatherCard";
 import AddWeather from "./Components/AddWeather";
+import Welcome from "./Components/Welcome";
 
 function App() {
   const [data, setData] = useState([]);
@@ -32,7 +33,10 @@ function App() {
   return (
     <>
       {data.length <= 0 ? (
+        <>
+        <Welcome/>
         <AddWeather city={search} />
+        </>
       ) : (
         <div>
           {data.map((item) => (
