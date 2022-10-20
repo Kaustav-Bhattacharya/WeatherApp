@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import "./App.css"
 import WeatherCard from "./Components/WeatherCard";
 import AddWeather from "./Components/AddWeather";
 import Welcome from "./Components/Welcome";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
   const [data, setData] = useState([]);
@@ -34,15 +36,26 @@ function App() {
     <>
       {data.length <= 0 ? (
         <>
-        <Welcome/>
-        <AddWeather city={search} />
+          <Welcome />
+          <AddWeather city={search} />
         </>
       ) : (
         <div>
-          {data.map((item) => (
-            <WeatherCard data={item} deleteCard={removeCard} />
-          ))}
           <AddWeather city={search} />
+          <div
+          className="cards"
+           
+          >
+            {data.map((item) => (
+              <div>
+                <WeatherCard
+                  key={uuidv4()}
+                  data={item}
+                  deleteCard={removeCard}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </>

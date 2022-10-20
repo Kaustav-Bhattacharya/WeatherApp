@@ -21,6 +21,7 @@ export default function AddWeather(props) {
             if (e.key === "Enter") {
               e.preventDefault();
               props.city(searching);
+              setSearching('')
             }
           }}
           style={{
