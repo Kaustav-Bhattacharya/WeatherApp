@@ -4,6 +4,7 @@ import WeatherCard from "./Components/WeatherCard";
 import AddWeather from "./Components/AddWeather";
 import Welcome from "./Components/Welcome";
 import { v4 as uuidv4 } from "uuid";
+import WeatherIcons from "./Components/WeatherIcons";
 
 function App() {
   const [data, setData] = useState([]);
@@ -38,6 +39,7 @@ function App() {
         <>
           <Welcome />
           <AddWeather city={search} />
+          <WeatherIcons/>
         </>
       ) : (
         <div>
